@@ -25,6 +25,7 @@ class main:
             ext_inst = Extract()
             html_content = ext_inst.extract_fundamentus_html(stock=get_stock)
             final_data = ext_inst.transform_html(html_content)
+            ext_inst.insert_into_database(df=final_data)
         
             st.markdown(self.create_html_cards(final_data),unsafe_allow_html=True)
  
